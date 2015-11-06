@@ -1,0 +1,21 @@
+function [ value ] = differentiate( func,x )
+%UNTITLED9 Summary of this function goes here
+%   Detailed explanation goes here
+
+h=0.25;
+xFirst=x+h;
+xSecond=x+2*h;
+xThird=x-h;
+xFourth=x-2*h;
+
+f1=replaceByValue(func,xFirst);
+fun1=evaluateByValue(f1);
+f2=replaceByValue(func,xSecond);
+fun2=evaluateByValue(f2);
+f3=replaceByValue(func,xThird);
+fun3=evaluateByValue(f3);
+f4=replaceByValue(func,xFourth);
+fun4=evaluateByValue(f4);
+value=(-fun2+8*fun1-8*fun3+fun4);
+value=value/(12*h);
+end
